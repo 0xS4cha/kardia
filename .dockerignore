@@ -1,0 +1,11 @@
+.venv
+.git
+__pycache__
+*.pt
+*.pth
+*.nii
+*.nii.gz
+*.dcm
+dist
+build
+.pytest_cache
