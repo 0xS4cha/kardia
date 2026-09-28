@@ -1,14 +1,32 @@
 [project]
 name = "kardia"
 version = "0.1.0"
-description = "Add your description here"
+description = "Cardiac MRI segmentation and interactive 3D reconstruction"
 readme = "README.md"
 requires-python = ">=3.10"
+license = { text = "MIT" }
 dependencies = [
     "monai>=1.6.0",
     "nibabel>=5.4.2",
+    "numpy>=2.0.0",
+    "pydicom>=3.0.0",
     "pyside6>=6.11.2",
     "pyvista>=0.49.0",
+    "pyvistaqt>=0.11.0",
+    "pyyaml>=6.0.2",
+    "simpleitk>=2.4.0",
     "torch>=2.14.0",
     "vtk>=9.7.0",
 ]
+
+[project.scripts]
+kardia = "kardia.__main__:main"
+kardia-dataset = "kardia.io.dataset:main"
+kardia-train = "kardia.training.run_train:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/kardia"]
